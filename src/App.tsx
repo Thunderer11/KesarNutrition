@@ -1,9 +1,9 @@
-import AnimationScene from './components/animation/AnimationScene';
+import Scene from './components/animation/Scene';
 
 function App() {
   return (
     <div className="app-shell">
-      <AnimationScene />
+      <Scene />
     </div>
   );
 }
