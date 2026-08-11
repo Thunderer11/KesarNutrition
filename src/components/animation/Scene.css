@@ -69,8 +69,9 @@
   opacity: 1;
 }
 
-#truck-wheels {
-  transform-origin: 50% 50%;
+.truck-wheel {
+  transform-box: fill-box;
+  transform-origin: center center;
 }
 
 @media (max-width: 960px) {

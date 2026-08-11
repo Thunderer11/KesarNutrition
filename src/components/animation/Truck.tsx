@@ -6,32 +6,43 @@ function Truck() {
       <svg viewBox="0 0 640 240" aria-labelledby="truckTitle" role="img" xmlns="http://www.w3.org/2000/svg">
         <title id="truckTitle">Side view container truck</title>
         <g id="truck-wheels" className="truck-wheels" fill="none" stroke="none">
-          <circle cx="150" cy="196" r="26" fill="#1c1e20" />
-          <circle cx="298" cy="196" r="26" fill="#1c1e20" />
-          <circle cx="446" cy="196" r="26" fill="#1c1e20" />
-          <circle cx="594" cy="196" r="26" fill="#1c1e20" />
-          <circle cx="150" cy="196" r="10" fill="#d8d8d8" />
-          <circle cx="298" cy="196" r="10" fill="#d8d8d8" />
-          <circle cx="446" cy="196" r="10" fill="#d8d8d8" />
-          <circle cx="594" cy="196" r="10" fill="#d8d8d8" />
+          <g className="truck-wheel">
+            <circle cx="138" cy="200" r="28" fill="#1a1c1f" />
+            <circle cx="138" cy="200" r="10" fill="#d8d8d8" />
+          </g>
+          <g className="truck-wheel">
+            <circle cx="288" cy="200" r="28" fill="#1a1c1f" />
+            <circle cx="288" cy="200" r="10" fill="#d8d8d8" />
+          </g>
+          <g className="truck-wheel">
+            <circle cx="438" cy="200" r="28" fill="#1a1c1f" />
+            <circle cx="438" cy="200" r="10" fill="#d8d8d8" />
+          </g>
+          <g className="truck-wheel">
+            <circle cx="588" cy="200" r="28" fill="#1a1c1f" />
+            <circle cx="588" cy="200" r="10" fill="#d8d8d8" />
+          </g>
         </g>
 
         <g id="truck-body-group">
-          <path d="M38 134h150v70H38z" fill="#c2c4c6" stroke="#1c1e20" strokeWidth="4" />
-          <path d="M38 134l42-58h92l38 58v70H38z" fill="#dadbdd" stroke="#1c1e20" strokeWidth="4" />
-          <path d="M90 80h52v38H90z" fill="#33363a" />
-          <path d="M146 80h32v38h-32z" fill="#33363a" />
-          <path d="M220 134h338v70H220z" fill="#e5e6e7" stroke="#1c1e20" strokeWidth="4" />
-          <path d="M220 134h338v18H220z" fill="#aaaaad" />
-          <path d="M262 152h90" stroke="#b2b4b7" strokeWidth="8" />
-          <path d="M370 152h88" stroke="#b2b4b7" strokeWidth="8" />
-          <path d="M104 166h48" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M226 150h36" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M286 150h36" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M346 150h36" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M406 150h36" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M468 150h36" stroke="#1c1e20" strokeWidth="6" />
-          <path d="M530 150h28" stroke="#1c1e20" strokeWidth="6" />
+          <path d="M42 138h148v64H42z" fill="#c8cacd" stroke="#1a1c1f" strokeWidth="4" />
+          <path d="M42 138l42-68h88l34 68v64H42z" fill="#dadbdd" stroke="#1a1c1f" strokeWidth="4" />
+          <path d="M88 72h42v38H88z" fill="#33363a" />
+          <path d="M132 72h30v38h-30z" fill="#33363a" />
+          <path d="M164 80h18v18h-18z" fill="#b0b2b5" />
+          <path d="M42 136h20" stroke="#1a1c1f" strokeWidth="4" />
+          <path d="M42 156h20" stroke="#b0b2b5" strokeWidth="4" />
+          <path d="M54 124l-12 12" stroke="#1a1c1f" strokeWidth="4" />
+          <path d="M68 120h18v10H68z" fill="#1a1c1f" />
+          <path d="M202 138h338v64H202z" fill="#e3e4e6" stroke="#1a1c1f" strokeWidth="4" />
+          <path d="M202 138h338v16H202z" fill="#a9abaf" />
+          <path d="M246 152h70" stroke="#b5b7ba" strokeWidth="8" />
+          <path d="M336 152h70" stroke="#b5b7ba" strokeWidth="8" />
+          <path d="M426 152h70" stroke="#b5b7ba" strokeWidth="8" />
+          <path d="M516 152h24" stroke="#b5b7ba" strokeWidth="8" />
+          <path d="M210 188h320" stroke="#1a1c1f" strokeWidth="8" />
+          <path d="M84 186h112" stroke="#1a1c1f" strokeWidth="8" />
+          <path d="M60 202h98" stroke="#727678" strokeWidth="8" />
         </g>
       </svg>
     </div>

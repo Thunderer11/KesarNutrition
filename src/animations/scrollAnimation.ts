@@ -40,7 +40,7 @@ export function initScrollAnimation(options: ScrollAnimationOptions) {
       },
     )
     .fromTo(
-      '#truck-wheels',
+      '.truck-wheel',
       {
         rotate: 218,
       },
