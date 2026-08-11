@@ -64,6 +64,107 @@ export function initScrollAnimation(options: ScrollAnimationOptions) {
         ease: 'none',
       },
       0,
+    )
+    .fromTo(
+      '#content-1',
+      {
+        autoAlpha: 0,
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0.05,
+    )
+    .to(
+      '#content-1',
+      {
+        autoAlpha: 0,
+        y: -40,
+        ease: 'power2.in',
+      },
+      0.25,
+    )
+    .fromTo(
+      '#content-2',
+      {
+        autoAlpha: 0,
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0.28,
+    )
+    .to(
+      '#content-2',
+      {
+        autoAlpha: 0,
+        y: -40,
+        ease: 'power2.in',
+      },
+      0.50,
+    )
+    .fromTo(
+      '#content-3',
+      {
+        autoAlpha: 0,
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0.52,
+    )
+    .to(
+      '#content-3',
+      {
+        autoAlpha: 0,
+        y: -40,
+        ease: 'power2.in',
+      },
+      0.75,
+    )
+    .fromTo(
+      '#content-4',
+      {
+        autoAlpha: 0,
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0.77,
+    )
+    .to(
+      '#content-4',
+      {
+        autoAlpha: 0,
+        y: -40,
+        ease: 'power2.in',
+      },
+      0.92,
+    )
+    .fromTo(
+      '#content-5',
+      {
+        autoAlpha: 0,
+        y: 40,
+      },
+      {
+        autoAlpha: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0.94,
     );
 
   return timeline;

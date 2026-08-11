@@ -41,6 +41,102 @@ select {
   width: 100%;
 }
 
+.scroll-content {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scroll-panel {
+  position: absolute;
+  width: min(420px, 80%);
+  max-width: 420px;
+  padding: 1.8rem 2rem;
+  background: rgba(9, 14, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);
+  color: #f7fafc;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.scroll-panel__label {
+  display: inline-block;
+  letter-spacing: 0.22em;
+  font-size: 0.78rem;
+  color: #8ea6c3;
+  margin-bottom: 0.85rem;
+}
+
+.scroll-panel h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.scroll-panel p {
+  margin: 0;
+  color: rgba(247, 250, 252, 0.82);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.scroll-panel__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.scroll-button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f4f7fb;
+  padding: 0.95rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+}
+
+.scroll-button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.scroll-button--primary {
+  background: linear-gradient(135deg, rgba(87, 115, 255, 0.98), rgba(70, 192, 255, 0.96));
+  border-color: transparent;
+  color: #06102a;
+}
+
+.scroll-panel--one {
+  top: 18%;
+  right: 12%;
+}
+
+.scroll-panel--two {
+  top: 26%;
+  left: 10%;
+}
+
+.scroll-panel--three {
+  top: 48%;
+  right: 14%;
+}
+
+.scroll-panel--four {
+  bottom: 26%;
+  left: 16%;
+}
+
+.scroll-panel--five {
+  bottom: 18%;
+  right: 10%;
+}
+
 .app-shell {
   min-height: 100vh;
   width: 100%;
