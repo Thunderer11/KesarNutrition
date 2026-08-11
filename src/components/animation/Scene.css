@@ -12,10 +12,11 @@
   position: relative;
   width: min(1290px, 100%);
   aspect-ratio: 16 / 9;
-  background: linear-gradient(180deg, #101822 0%, #0a1018 55%, #09101a 100%);
-  border-radius: 32px;
+  background: #f4f3ee;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 32px 120px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(24, 24, 24, 0.08);
 }
 
 .scene-content {
@@ -32,9 +33,9 @@
 }
 
 .crane {
-  width: 360px;
+  width: 340px;
   height: 420px;
-  top: 6%;
+  top: 8%;
   left: 8%;
 }
 
@@ -42,14 +43,14 @@
   width: 240px;
   height: 120px;
   left: 28%;
-  top: 28%;
+  top: 26%;
 }
 
 .truck {
   width: 560px;
   height: 220px;
-  left: 34%;
-  top: 44%;
+  left: 30%;
+  top: 42%;
   transform-origin: center center;
 }
 
@@ -65,16 +66,12 @@
 }
 
 @media (max-width: 960px) {
-  .scene-stage {
-    padding: 1rem;
-  }
-
   .scene-viewport {
     aspect-ratio: 4 / 3;
   }
 
   .crane {
-    width: 280px;
+    width: 260px;
     height: 340px;
     left: 6%;
   }
@@ -89,38 +86,38 @@
   .truck {
     width: 480px;
     height: 180px;
-    left: 30%;
+    left: 28%;
     top: 48%;
   }
 }
 
 @media (max-width: 640px) {
   .scene-stage {
-    padding: 0.5rem;
+    padding: 0.75rem;
   }
 
   .scene-viewport {
-    border-radius: 24px;
+    border-radius: 22px;
   }
 
   .crane {
-    width: 240px;
+    width: 210px;
     height: 300px;
-    left: 4%;
-    top: 5%;
+    left: 5%;
+    top: 6%;
   }
 
   .container {
     width: 180px;
     height: 90px;
     left: 20%;
-    top: 32%;
+    top: 34%;
   }
 
   .truck {
     width: 420px;
     height: 160px;
     left: 28%;
-    top: 50%;
+    top: 52%;
   }
 }
