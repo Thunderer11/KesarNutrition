@@ -1,8 +1,13 @@
 import './Scene.css';
 
-function Container() {
+interface ContainerProps {
+  id?: string;
+  className?: string;
+}
+
+function Container({ id = 'container', className = '' }: ContainerProps) {
   return (
-    <div id="container" className="scene-element container">
+    <div id={id} className={`scene-element container ${className}`.trim()}>
       <svg viewBox="0 0 260 100" aria-labelledby="containerTitle" role="img" xmlns="http://www.w3.org/2000/svg">
         <title id="containerTitle">Shipping container</title>
         <rect x="0" y="0" width="260" height="100" fill="#d8d9da" stroke="#2c2e31" strokeWidth="4" />

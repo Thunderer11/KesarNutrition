@@ -40,17 +40,6 @@ export function initScrollAnimation(options: ScrollAnimationOptions) {
       },
     )
     .fromTo(
-      '.truck-wheel',
-      {
-        rotate: 218,
-      },
-      {
-        rotate: 1020,
-        ease: 'none',
-      },
-      0,
-    )
-    .fromTo(
       '#scene-content',
       {
         x: -44,

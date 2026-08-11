@@ -37,10 +37,8 @@ export function initIntroAnimation(options: IntroAnimationOptions = {}) {
       rotation: 0,
       transformOrigin: '50% 50%',
     })
-    .set('.truck-wheel', {
-      rotation: 0,
-      transformOrigin: '50% 50%',
-      transformBox: 'fill-box',
+    .set('#truck-container', {
+      autoAlpha: 0,
     })
     .set('#scene-content', {
       x: 0,
@@ -144,15 +142,12 @@ export function initIntroAnimation(options: IntroAnimationOptions = {}) {
     )
 
     .addLabel('truckMove', `>+0.2`)
-    .to(
-      '.truck-wheel',
-      {
-        duration: introTiming.truckMove,
-        rotate: '+=190deg',
-        ease: 'power2.inOut',
-      },
-      'truckMove',
-    )
+    .set('#container', {
+      autoAlpha: 0,
+    }, 'truckMove')
+    .set('#truck-container', {
+      autoAlpha: 1,
+    }, 'truckMove')
     .to(
       '#truck',
       {
@@ -196,15 +191,6 @@ export function initIntroAnimation(options: IntroAnimationOptions = {}) {
     )
 
     .addLabel('finalStop', `>+0.08`)
-    .to(
-      '.truck-wheel',
-      {
-        duration: 0.45,
-        rotate: '+=28deg',
-        ease: 'power1.out',
-      },
-      'finalStop',
-    )
     .to(
       '#truck',
       {

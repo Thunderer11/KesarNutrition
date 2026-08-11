@@ -69,11 +69,6 @@
   opacity: 1;
 }
 
-.truck-wheel {
-  transform-box: fill-box;
-  transform-origin: center center;
-}
-
 @media (max-width: 960px) {
   .scene-viewport {
     aspect-ratio: 4 / 3;
