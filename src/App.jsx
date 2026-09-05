@@ -71,21 +71,28 @@ function App() {
         <div className="scene">
 
           {cards.map((card, index) => {
-            const cardStart = index / cards.length;
-            const isActive = progress >= cardStart;
-
-            return (
-              <div
-                key={card.id}
-                className={`story-card ${card.className} ${
-                  isActive ? "active" : ""
-                }`}
-              >
-                <span>0{card.id}</span>
-                <h2>{card.title}</h2>
-              </div>
-            );
-          })}
+          const cardStart = index / cards.length;
+          const revealLength = 0.18;
+          const cardProgress = Math.min(
+          Math.max(
+            (progress - cardStart) / revealLength,
+            0
+         ),
+         1
+         );
+         return (
+           <div
+           key={card.id}
+            className={`story-card ${card.className}`}
+            style={{
+            "--card-progress": cardProgress,
+            }}
+             >
+          <span>0{card.id}</span>
+           <h2>{card.title}</h2>
+            </div>
+         );
+        })}
 
           <div className="center-box">
             <p>KESAR NUTRITION</p>
