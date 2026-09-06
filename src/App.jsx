@@ -80,8 +80,8 @@ function App() {
             aria-hidden="true"
           >
             {cards.map((card, index) => {
-              const cardStart = index / cards.length;
-              const revealLength = 0.18;
+              const cardStart = (index + 1) / (cards.length + 1);
+              const revealLength = 0.20;
 
               const cardProgress = Math.min(
                 Math.max(
@@ -90,10 +90,13 @@ function App() {
                 ),
                 1
               );
-
+              const isCurrent =
+                progress >= cardStart &&
+                progress < cardStart + revealLength;
+              const isComplete =
+                progress >= cardStart + revealLength;
               const positions = [
-                // Keep each endpoint just inside the corresponding card edge.
-                { x: 34, y: 35 },
+                { x: 30, y: 35 },
                 { x: 80, y: 36 },
                 { x: 30, y: 64 },
                 { x: 78, y: 64 },
@@ -122,9 +125,8 @@ function App() {
           </svg>
 
           {/* Story cards */}
-
           {cards.map((card, index) => {
-            const cardStart = index / cards.length;
+            const cardStart = (index + 1) / (cards.length + 1);
             const revealLength = 0.18;
 
             const cardProgress = Math.min(
@@ -135,10 +137,19 @@ function App() {
               1
             );
 
+            const isCurrent =
+              progress >= cardStart &&
+              progress < cardStart + revealLength;
+
+            const isComplete =
+              progress >= cardStart + revealLength;
+
             return (
               <div
                 key={card.id}
-                className={`story-card ${card.className}`}
+                className={`story-card ${card.className} ${
+                  isCurrent ? "current" : ""
+                } ${isComplete ? "complete" : ""}`}
                 style={{
                   "--card-progress": cardProgress,
                 }}
