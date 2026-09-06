@@ -39,6 +39,19 @@ const cards = [
   },
 ];
 
+/* ================================
+   CONNECTION LINE END POINTS
+   We will adjust these later
+================================ */
+
+const positions = [
+  { x: 30, y: 35 },
+  { x: 80, y: 36 },
+  { x: 30, y: 64 },
+  { x: 78, y: 64 },
+  { x: 50, y: 26 },
+];
+
 function App() {
   const [progress, setProgress] = useState(0);
 
@@ -78,6 +91,10 @@ function App() {
   return (
     <main className="page">
 
+      {/* ================================
+          INTRO / STORY NETWORK
+      ================================= */}
+
       <section className="intro">
         <div className="scene">
 
@@ -90,7 +107,9 @@ function App() {
             aria-hidden="true"
           >
             {cards.map((card, index) => {
-              const cardStart = (index + 1) / (cards.length + 1);
+              const cardStart =
+                (index + 1) / (cards.length + 1);
+
               const revealLength = 0.20;
 
               const cardProgress = Math.min(
@@ -100,18 +119,6 @@ function App() {
                 ),
                 1
               );
-              const isCurrent =
-                progress >= cardStart &&
-                progress < cardStart + revealLength;
-              const isComplete =
-                progress >= cardStart + revealLength;
-              const positions = [
-                { x: 30, y: 35 },
-                { x: 80, y: 36 },
-                { x: 30, y: 64 },
-                { x: 78, y: 64 },
-                { x: 50, y: 26 },
-              ];
 
               const position = positions[index];
 
@@ -126,6 +133,7 @@ function App() {
                   style={{
                     opacity:
                       0.05 + cardProgress * 0.5,
+
                     strokeDashoffset:
                       100 - cardProgress * 100,
                   }}
@@ -135,8 +143,11 @@ function App() {
           </svg>
 
           {/* Story cards */}
+
           {cards.map((card, index) => {
-            const cardStart = (index + 1) / (cards.length + 1);
+            const cardStart =
+              (index + 1) / (cards.length + 1);
+
             const revealLength = 0.18;
 
             const cardProgress = Math.min(
@@ -167,6 +178,7 @@ function App() {
                 <span>0{card.id}</span>
 
                 <h2>{card.title}</h2>
+
                 <p className="card-description">
                   {card.description}
                 </p>
@@ -188,7 +200,9 @@ function App() {
         </div>
       </section>
 
-      {/* Normal website */}
+      {/* ================================
+          OUR STORY
+      ================================= */}
 
       <section className="content">
         <h1>Our Story</h1>
@@ -207,7 +221,9 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* ================================
+          CONTACT
+      ================================= */}
 
       <section className="contact">
         <p>GET IN TOUCH</p>

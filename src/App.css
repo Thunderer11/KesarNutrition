@@ -15,7 +15,6 @@
 .scene {
   height: 100vh;
   width: 100%;
-
   position: sticky;
   top: 0;
 
@@ -32,15 +31,12 @@
 
 .connection-network {
   position: absolute;
-
   width: 100%;
   height: 100%;
-
   top: 0;
   left: 0;
 
   z-index: 1;
-
   pointer-events: none;
 }
 
@@ -48,8 +44,10 @@
   fill: none;
   stroke: rgba(255, 255, 255, 0.35);
   stroke-width: 0.09;
+
   stroke-dasharray: 100;
   stroke-linecap: round;
+
   transition:
     opacity 0.15s linear,
     stroke-dashoffset 0.15s linear;
@@ -64,7 +62,6 @@
   height: 150px;
 
   position: absolute;
-
   z-index: 10;
 
   display: flex;
@@ -96,7 +93,6 @@
   margin: 0;
 
   font-size: 14px;
-
   letter-spacing: 4px;
 }
 
@@ -105,13 +101,13 @@
 ================================ */
 
 .story-card {
-  width: 250px;
-  height: 180px;
+  width: 230px;
+  height: 190px;
 
   position: absolute;
-
   z-index: 5;
 
+  box-sizing: border-box;
   padding: 20px;
 
   border: 1px solid
@@ -146,23 +142,34 @@
       calc(var(--card-progress) * 0.08)
     );
 }
+
+/* ================================
+   CARD DESCRIPTION
+================================ */
+
 .card-description {
   margin: 14px 0 0;
 
   max-width: 210px;
 
   font-size: 12px;
-
   line-height: 1.5;
 
   color: rgba(255, 255, 255, 0.65);
 
-  opacity: calc(var(--card-progress) * 0.85);
+  opacity:
+    calc(
+      var(--card-progress) * 0.85
+    );
 
-  transform: translateY(
-    calc((1 - var(--card-progress)) * 8px)
-  );
+  transform:
+    translateY(
+      calc(
+        (1 - var(--card-progress)) * 8px
+      )
+    );
 }
+
 /* ================================
    CURRENT STORY CARD
 ================================ */
@@ -178,10 +185,16 @@
 .story-card.current h2 {
   transform: translateX(4px);
 }
+
+/* ================================
+   COMPLETED STORY CARD
+================================ */
+
 .story-card.complete {
   box-shadow:
     0 0 18px rgba(255, 255, 255, 0.05);
 }
+
 /* ================================
    CARD TEXT
 ================================ */
@@ -199,7 +212,6 @@
   margin-top: 20px;
 
   font-size: 20px;
-
   font-weight: 400;
 
   opacity:
@@ -213,27 +225,27 @@
 ================================ */
 
 .card-1 {
-  top: 12%;
+  top: 15%;
   left: 12%;
 }
 
 .card-2 {
-  top: 12%;
+  top: 15%;
   right: 12%;
 }
 
 .card-3 {
-  bottom: 12%;
+  bottom: 15%;
   left: 12%;
 }
 
 .card-4 {
-  bottom: 12%;
+  bottom: 15%;
   right: 12%;
 }
 
 .card-5 {
-  top: 5%;
+  top: 6%;
   left: 50%;
 
   transform:
@@ -253,9 +265,7 @@
   min-height: 100vh;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
@@ -273,21 +283,6 @@
 .content p {
   color: #888;
 }
-.partners {
-  margin-top: 40px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap: 12px;
-}
-
-.partners p {
-  margin-bottom: 8px;
-}
 
 /* ================================
    CONTACT
@@ -297,9 +292,7 @@
   min-height: 100vh;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
@@ -308,19 +301,4 @@
 
 .contact h1 {
   font-size: clamp(40px, 8vw, 100px);
-}
-.contact a {
-  margin-top: 30px;
-
-  color: white;
-
-  font-size: 18px;
-
-  text-decoration: none;
-
-  transition: opacity 0.3s ease;
-}
-
-.contact a:hover {
-  opacity: 0.6;
 }
