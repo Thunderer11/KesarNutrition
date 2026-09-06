@@ -167,7 +167,9 @@ function App() {
                 <span>0{card.id}</span>
 
                 <h2>{card.title}</h2>
-                <p>{card.description}</p>
+                <p className="card-description">
+                  {card.description}
+                </p>
               </div>
             );
           })}

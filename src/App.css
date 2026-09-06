@@ -105,8 +105,8 @@
 ================================ */
 
 .story-card {
-  width: 230px;
-  height: 140px;
+  width: 250px;
+  height: 180px;
 
   position: absolute;
 
@@ -145,6 +145,23 @@
       255,
       calc(var(--card-progress) * 0.08)
     );
+}
+.card-description {
+  margin: 14px 0 0;
+
+  max-width: 210px;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  opacity: calc(var(--card-progress) * 0.85);
+
+  transform: translateY(
+    calc((1 - var(--card-progress)) * 8px)
+  );
 }
 /* ================================
    CURRENT STORY CARD
@@ -196,22 +213,22 @@
 ================================ */
 
 .card-1 {
-  top: 15%;
+  top: 12%;
   left: 12%;
 }
 
 .card-2 {
-  top: 15%;
+  top: 12%;
   right: 12%;
 }
 
 .card-3 {
-  bottom: 15%;
+  bottom: 12%;
   left: 12%;
 }
 
 .card-4 {
-  bottom: 15%;
+  bottom: 12%;
   right: 12%;
 }
 
@@ -256,6 +273,21 @@
 .content p {
   color: #888;
 }
+.partners {
+  margin-top: 40px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.partners p {
+  margin-bottom: 8px;
+}
 
 /* ================================
    CONTACT
@@ -276,4 +308,19 @@
 
 .contact h1 {
   font-size: clamp(40px, 8vw, 100px);
+}
+.contact a {
+  margin-top: 30px;
+
+  color: white;
+
+  font-size: 18px;
+
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.contact a:hover {
+  opacity: 0.6;
 }
