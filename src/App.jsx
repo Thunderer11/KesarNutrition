@@ -5,26 +5,36 @@ const cards = [
   {
     id: 1,
     title: "Who We Are",
+    description:
+      "Kesar Nutrition is a nutrition manufacturing business focused on quality products.",
     className: "card-1",
   },
   {
     id: 2,
     title: "What We Do",
+    description:
+      "Nutrition manufacturing, supplements and gelatin capsules.",
     className: "card-2",
   },
   {
     id: 3,
     title: "Our Mission",
+    description:
+      "Building a strong manufacturing business through quality and reliable products.",
     className: "card-3",
   },
   {
     id: 4,
     title: "Our Impact",
+    description:
+      "Quality manufacturing and quality products are at the heart of what we do.",
     className: "card-4",
   },
   {
     id: 5,
     title: "Our Vision",
+    description:
+      "Expanding our reach and taking Kesar Nutrition into international markets.",
     className: "card-5",
   },
 ];
@@ -157,6 +167,7 @@ function App() {
                 <span>0{card.id}</span>
 
                 <h2>{card.title}</h2>
+                <p>{card.description}</p>
               </div>
             );
           })}
@@ -181,19 +192,29 @@ function App() {
         <h1>Our Story</h1>
 
         <p>
-          Nutrition built around quality,
-          performance and trust.
+          Kesar Nutrition is focused on quality nutrition
+          manufacturing and building products people can trust.
         </p>
+
+        <div className="partners">
+          <p>Business Partners</p>
+
+          <span>Rajneesh Sharma</span>
+          <span>Parveen Kumar</span>
+          <span>Sajan Garg</span>
+        </div>
       </section>
 
       {/* Contact */}
 
       <section className="contact">
+        <p>GET IN TOUCH</p>
+
         <h1>Contact Us</h1>
 
-        <p>
-          Let's build something together.
-        </p>
+        <a href="mailto:Kesarnutritionpkl@gmail.com">
+          Kesarnutritionpkl@gmail.com
+        </a>
       </section>
 
     </main>
