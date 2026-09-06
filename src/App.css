@@ -46,11 +46,8 @@
 
 .connection-line {
   fill: none;
-
-  stroke: rgba(255, 255, 255, 0.8);
-
-  stroke-width: 0.12;
-
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 0.09;
   stroke-dasharray: 100;
 }
 

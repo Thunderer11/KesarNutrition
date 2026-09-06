@@ -92,11 +92,12 @@ function App() {
               );
 
               const positions = [
-                { x: 23, y: 23 },
-                { x: 77, y: 23 },
-                { x: 23, y: 77 },
-                { x: 77, y: 77 },
-                { x: 50, y: 12 },
+                // Keep each endpoint just inside the corresponding card edge.
+                { x: 34, y: 35 },
+                { x: 80, y: 36 },
+                { x: 30, y: 64 },
+                { x: 78, y: 64 },
+                { x: 50, y: 26 },
               ];
 
               const position = positions[index];
