@@ -1,3 +1,100 @@
+/* ================================
+   NAVIGATION
+================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
+
+  box-sizing: border-box;
+
+  z-index: 100;
+
+  background: rgba(8, 8, 8, 0.65);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.navbar-logo {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+
+  font-weight: 400;
+}
+
+.navbar-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 36px;
+}
+
+.navbar-links a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  transition:
+    color 0.25s ease;
+}
+
+.navbar-links a:hover {
+  color: white;
+}
+
+.navbar-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 1px;
+
+  background: white;
+
+  transform: scaleX(0);
+
+  transform-origin: right;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.navbar-links a:hover::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
 .page {
   background: #080808;
   color: white;
@@ -63,7 +160,7 @@
 
   position: absolute;
   z-index: 10;
-
+  transform: translateY(55px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -225,27 +322,27 @@
 ================================ */
 
 .card-1 {
-  top: 15%;
-  left: 12%;
+  top: 20%;
+  left: 10%;
 }
 
 .card-2 {
-  top: 15%;
-  right: 12%;
+  top: 20%;
+  right: 10%;
 }
 
 .card-3 {
-  bottom: 15%;
-  left: 12%;
+  bottom: 10%;
+  left: 10%;
 }
 
 .card-4 {
-  bottom: 15%;
-  right: 12%;
+  bottom: 10%;
+  right: 10%;
 }
 
 .card-5 {
-  top: 6%;
+  top: 12%;
   left: 50%;
   transform:
     translateX(-50%)
@@ -300,4 +397,45 @@
 
 .contact h1 {
   font-size: clamp(40px, 8vw, 100px);
+}
+
+/* ================================
+   NAVIGATION SCROLL OFFSET
+================================ */
+
+#story,
+#contact {
+  scroll-margin-top: 72px;
+}
+
+/* ================================
+   NAVIGATION - MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    height: 64px;
+    padding: 0 20px;
+  }
+
+  .navbar-logo {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .navbar-links {
+    gap: 18px;
+  }
+
+  .navbar-links a {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  #story,
+  #contact {
+    scroll-margin-top: 64px;
+  }
+
 }

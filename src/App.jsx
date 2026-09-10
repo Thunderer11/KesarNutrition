@@ -194,46 +194,76 @@ function App() {
         };
       });
 
-    setLinePositions(newPositions);
-  };
+        setLinePositions(newPositions);
+      };
 
-  window.addEventListener(
-    "scroll",
-    handleScroll
-  );
+      window.addEventListener(
+        "scroll",
+        handleScroll
+      );
 
-  window.addEventListener(
-    "resize",
-    updateLinePositions
-  );
+      window.addEventListener(
+        "resize",
+        updateLinePositions
+      );
 
-  handleScroll();
+      handleScroll();
 
-  requestAnimationFrame(
-    updateLinePositions
-  );
+      requestAnimationFrame(
+        updateLinePositions
+      );
 
-  return () => {
-    window.removeEventListener(
-      "scroll",
-      handleScroll
-    );
+      return () => {
+        window.removeEventListener(
+          "scroll",
+          handleScroll
+        );
 
-    window.removeEventListener(
-      "resize",
-      updateLinePositions
-    );
-  };
-}, []);
+        window.removeEventListener(
+          "resize",
+          updateLinePositions
+        );
+      };
+    }, []);
 
-  return (
-    <main className="page">
+    return (
+      <main className="page">
 
-      {/* ================================
-          INTRO / STORY NETWORK
-      ================================= */}
+        {/* ================================
+            NAVIGATION
+        ================================= */}
 
-      <section className="intro">
+        <nav className="navbar">
+
+          <a
+            href="#home"
+            className="navbar-logo"
+          >
+            KESAR NUTRITION
+          </a>
+
+          <div className="navbar-links">
+
+            <a href="#story">
+              OUR STORY
+            </a>
+
+            <a href="#contact">
+              CONTACT
+            </a>
+
+          </div>
+
+        </nav>
+
+        {/* ================================
+            INTRO / STORY NETWORK
+        ================================= */}
+
+        <section
+          className="intro"
+          id="home"
+        >
         <div 
           className="scene"
           ref={sceneRef}
@@ -355,7 +385,10 @@ function App() {
           OUR STORY
       ================================= */}
 
-      <section className="content">
+      <section 
+      className="content"
+      id="story"
+      >
         <h1>Our Story</h1>
 
         <p>
@@ -376,7 +409,10 @@ function App() {
           CONTACT
       ================================= */}
 
-      <section className="contact">
+      <section 
+      className="contact"
+      id="contact"
+      >
         <p>GET IN TOUCH</p>
 
         <h1>Contact Us</h1>
