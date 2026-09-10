@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 
 const cards = [
@@ -54,39 +54,177 @@ const positions = [
 
 function App() {
   const [progress, setProgress] = useState(0);
+  const sceneRef = useRef(null);
+  const centerRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [linePositions, setLinePositions] = useState([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const intro = document.querySelector(".intro");
+  const handleScroll = () => {
+    const intro = document.querySelector(".intro");
 
-      if (!intro) return;
+    if (!intro) return;
 
-      const rect = intro.getBoundingClientRect();
+    const rect = intro.getBoundingClientRect();
 
-      const scrollableDistance =
-        intro.offsetHeight - window.innerHeight;
+    const scrollableDistance =
+      intro.offsetHeight - window.innerHeight;
 
-      const scrolled = Math.min(
-        Math.max(-rect.top, 0),
-        scrollableDistance
-      );
+    const scrolled = Math.min(
+      Math.max(-rect.top, 0),
+      scrollableDistance
+    );
 
-      const currentProgress =
-        scrollableDistance > 0
-          ? scrolled / scrollableDistance
-          : 0;
+    const currentProgress =
+      scrollableDistance > 0
+        ? scrolled / scrollableDistance
+        : 0;
 
-      setProgress(currentProgress);
-    };
+    setProgress(currentProgress);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  const updateLinePositions = () => {
+    if (
+      !sceneRef.current ||
+      !centerRef.current
+    ) {
+      return;
+    }
 
-    handleScroll();
+    const sceneRect =
+      sceneRef.current.getBoundingClientRect();
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    const centerRect =
+      centerRef.current.getBoundingClientRect();
+
+    const centerX =
+      centerRect.left +
+      centerRect.width / 2 -
+      sceneRect.left;
+
+    const centerY =
+      centerRect.top +
+      centerRect.height / 2 -
+      sceneRect.top;
+
+    const newPositions =
+      cardRefs.current.map((card) => {
+        if (!card) return null;
+
+        const cardRect =
+          card.getBoundingClientRect();
+
+        const cardX =
+          cardRect.left +
+          cardRect.width / 2 -
+          sceneRect.left;
+
+        const cardY =
+          cardRect.top +
+          cardRect.height / 2 -
+          sceneRect.top;
+
+        const deltaX = cardX - centerX;
+        const deltaY = cardY - centerY;
+
+        const halfCenterWidth =
+          centerRect.width / 2;
+
+        const halfCenterHeight =
+          centerRect.height / 2;
+
+        const halfCardWidth =
+          cardRect.width / 2;
+
+        const halfCardHeight =
+          cardRect.height / 2;
+
+        const centerScaleX =
+          Math.abs(deltaX) / halfCenterWidth;
+
+        const centerScaleY =
+          Math.abs(deltaY) / halfCenterHeight;
+
+        const centerScale =
+          Math.max(
+            centerScaleX,
+            centerScaleY
+          );
+
+        const startX =
+          centerX +
+          deltaX / centerScale;
+
+        const startY =
+          centerY +
+          deltaY / centerScale;
+
+        const cardScaleX =
+          Math.abs(deltaX) / halfCardWidth;
+
+        const cardScaleY =
+          Math.abs(deltaY) / halfCardHeight;
+
+        const cardScale =
+          Math.max(
+            cardScaleX,
+            cardScaleY
+          );
+
+        const endX =
+          cardX -
+          deltaX / cardScale;
+
+        const endY =
+          cardY -
+          deltaY / cardScale;
+
+        return {
+          x1:
+            (startX / sceneRect.width) * 100,
+
+          y1:
+            (startY / sceneRect.height) * 100,
+
+          x2:
+            (endX / sceneRect.width) * 100,
+
+          y2:
+            (endY / sceneRect.height) * 100,
+        };
+      });
+
+    setLinePositions(newPositions);
+  };
+
+  window.addEventListener(
+    "scroll",
+    handleScroll
+  );
+
+  window.addEventListener(
+    "resize",
+    updateLinePositions
+  );
+
+  handleScroll();
+
+  requestAnimationFrame(
+    updateLinePositions
+  );
+
+  return () => {
+    window.removeEventListener(
+      "scroll",
+      handleScroll
+    );
+
+    window.removeEventListener(
+      "resize",
+      updateLinePositions
+    );
+  };
+}, []);
 
   return (
     <main className="page">
@@ -96,7 +234,10 @@ function App() {
       ================================= */}
 
       <section className="intro">
-        <div className="scene">
+        <div 
+          className="scene"
+          ref={sceneRef}
+          >
 
           {/* Connection lines */}
 
@@ -112,33 +253,39 @@ function App() {
 
               const revealLength = 0.20;
 
-              const cardProgress = Math.min(
-                Math.max(
-                  (progress - cardStart) / revealLength,
-                  0
-                ),
-                1
-              );
+                const cardProgress = Math.min(
+                  Math.max(
+                    (progress - cardStart) /
+                      revealLength,
+                    0
+                  ),
+                  1
+                );
 
-              const position = positions[index];
+                const position =
+                  linePositions[index];
 
-              return (
-                <line
-                  key={card.id}
-                  className="connection-line"
-                  x1="50"
-                  y1="50"
-                  x2={position.x}
-                  y2={position.y}
-                  style={{
-                    opacity:
-                      0.05 + cardProgress * 0.5,
+                if (!position) return null;
 
-                    strokeDashoffset:
-                      100 - cardProgress * 100,
-                  }}
-                />
-              );
+                return (
+                  <line
+                    key={card.id}
+                    className="connection-line"
+                    x1={position.x1}
+                    y1={position.y1}
+                    x2={position.x2}
+                    y2={position.y2}
+                    style={{
+                      opacity:
+                        0.05 +
+                        cardProgress * 0.5,
+
+                      strokeDashoffset:
+                        100 -
+                        cardProgress * 100,
+                    }}
+                  />
+                );
             })}
           </svg>
 
@@ -171,6 +318,9 @@ function App() {
                 className={`story-card ${card.className} ${
                   isCurrent ? "current" : ""
                 } ${isComplete ? "complete" : ""}`}
+                ref={(element) => {
+                cardRefs.current[index] = element;
+                }}
                 style={{
                   "--card-progress": cardProgress,
                 }}
@@ -190,6 +340,7 @@ function App() {
 
           <div
             className="center-box"
+            ref={centerRef}
             style={{
               "--scene-progress": progress,
             }}
